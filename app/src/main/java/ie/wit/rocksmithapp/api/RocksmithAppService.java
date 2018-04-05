@@ -16,19 +16,24 @@ import retrofit2.http.Path;
  */
 
 public interface RocksmithAppService {
-    @GET("/SongRecord")
-    Call<List<SongRecord>> getAllSongs();
 
-    @GET("/SongRecord/{id}")
-    Call<List<SongRecord>> getSong(@Path("id") String id);
+    @GET("/songrecords/{token}")
+    Call<List<SongRecord>> getAllSongs(@Path("token") String token);
 
-    @DELETE("/SongRecord/{id}")
-    Call<SongRecord> deleteSong(@Path("id") String id);
+    @GET("/songrecord/{token}/{id}")
+    Call<List<SongRecord>> retrieveSongs(@Path("token") String token,
+                                          @Path("id") String id);
 
-    @POST("/SongRecord")
-    Call<SongRecord> createSong(@Body SongRecord song);
+    @DELETE("/songrecord/{token}/{id}")
+    Call<SongRecord> deleteSong(@Path("token") String token,
+                                @Path("id") String id);
 
-    @PUT("/SongRecord/{id}/votes")
-    Call<SongRecord> upVoteSong(@Path("id") String id,
-                                  @Body SongRecord song);
+    @POST("/songrecord/{token}")
+    Call<SongRecord> createSong(@Path("token") String token,
+                                @Body SongRecord songRecord);
+
+    @PUT("/songrecord/{token}/{id}")
+    Call<SongRecord> updateSong(@Path("token") String token,
+                                  @Path("id") String id,
+                                  @Body SongRecord songRecord);
 }

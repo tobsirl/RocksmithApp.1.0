@@ -2,6 +2,22 @@
     <string name="app_name">RocksmithApp</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_home">Home</string>
+    <string name="appWebsite">tobsirl.github.com</string>
+    <string name="recentlyViewedEmptyMessage">You have no Song\'s added, listen to some music!</string>
+    <string name="recentlyViewedLbl">Recently Added Songs\'s</string>
+    <string name="favouritesSongsLbl">Favourite Song\'s</string>
+    <string name="favouritesEmptyMessage">No Favourite Song\'s Yet !</string>
+    <string name="searchSongHint">Enter a Song Title</string>
+    <string name="searchSongTypePrompt">Chose a Type of Music</string>
+    <string name="searchSongsResultsLbl">Search Results</string>
+    <string name="searchSongsLbl">Search Song\'s</string>
+    <string name="appDesc">RocksmithApp provides the user with and easy way to manage a list of songs and your favourite songs.</string>
+    <string name="appMoreInfo">For more information about RocksmithApp or to provide feedback please visit our website.</string>
+
+
 </resources>

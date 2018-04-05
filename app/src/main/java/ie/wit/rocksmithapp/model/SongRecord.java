@@ -9,19 +9,25 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class SongRecord {
-
+    public String _id;
     @SerializedName("songName")
     @Expose
-    private String songName;
+    public String songName;
     @SerializedName("artistName")
     @Expose
-    private String artistName;
+    public String artistName;
     @SerializedName("difficulty")
     @Expose
-    private Integer difficulty;
+    public Integer difficulty;
     @SerializedName("speed")
     @Expose
-    private Integer speed;
+    public Integer speed;
+    @SerializedName("speed")
+    @Expose
+    public double ratingValue;
+    @SerializedName("ratingValue")
+    @Expose
+    public Boolean favourite;
     @SerializedName("levelUp")
     @Expose
     private Boolean levelUp;
@@ -59,15 +65,18 @@ public class SongRecord {
     @Expose
     private String showMistakes;
 
-    public SongRecord(String songName, String artistName, Integer difficulty, Integer speed, Boolean levelUp,
-                      Boolean accelerate, String advancedSettings, String dateCreated, String difficultyRepeats,
-                      String speedRepeats, String tolerance, String speedIncrement, String rewindAnimation, String masterMode,
-                      String autoContinue, String showMistakes) {
+    public SongRecord () {
+        this.songName = "";
+    }
+
+    public SongRecord(String songName, String artistName, Integer difficulty, Integer speed, double ratingValue)
+    {
         this.songName = songName;
         this.artistName = artistName;
         this.difficulty = difficulty;
         this.speed = speed;
         this.levelUp = levelUp;
+        this.ratingValue = ratingValue;
         this.accelerate = accelerate;
         this.advancedSettings = advancedSettings;
         this.dateCreated = dateCreated;
@@ -209,4 +218,15 @@ public class SongRecord {
         this.showMistakes = showMistakes;
     }
 
+    @Override
+    public String toString() {
+        return "SongRecord{" +
+                "Song='" + songName + '\'' +
+                ", Artist='" + artistName + '\'' +
+                ", Difficulty=" + difficulty +
+                ", Speed=" + speed +
+                ", Rating=" + ratingValue +
+                ", Favourite=" + favourite +
+                '}';
+    }
 }
