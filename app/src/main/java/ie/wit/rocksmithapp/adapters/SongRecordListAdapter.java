@@ -35,9 +35,10 @@ public class SongRecordListAdapter extends ArrayAdapter<SongRecord> {
     public int getCount() {
         return songRecordList.size();
     }
-    public List<SongRecord> getSongRecordList() {
+    public List<SongRecord> getSongList() {
         return this.songRecordList;
     }
+
     @Override
     public SongRecord getItem(int position) {
         return songRecordList.get(position);

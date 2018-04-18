@@ -79,7 +79,7 @@
         </EditText>
 
         <TextView
-            android:id="@+id/songNameTextView"
+            android:id="@+id/songNameTitleTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="The Title"
@@ -100,7 +100,7 @@
             android:layout_marginEnd="19dp"
             android:onClick="toggle"
             android:src="@drawable/ic_favourite_off"
-            app:layout_constraintBottom_toBottomOf="@+id/songNameTextView"
+            app:layout_constraintBottom_toBottomOf="@+id/songNameTitleTextView"
             app:layout_constraintRight_toRightOf="@+id/artistNameTextView"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
@@ -206,7 +206,7 @@
             android:layout_width="383dp"
             android:layout_height="24dp"
             android:layout_marginTop="7dp"
-            android:text="@string/coffeeDetailsLbl"
+            android:text="@string/songDetailsLbl"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/artistNameTextView"
             tools:layout_constraintLeft_creator="1"

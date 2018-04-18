@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
-
 import ie.wit.rocksmithapp.R;
 import ie.wit.rocksmithapp.model.SongRecord;
 

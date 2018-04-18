@@ -9,7 +9,6 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class SongRecord {
-    public String _id;
     @SerializedName("songName")
     @Expose
     public String songName;
@@ -22,10 +21,10 @@ public class SongRecord {
     @SerializedName("speed")
     @Expose
     public Integer speed;
-    @SerializedName("speed")
+    @SerializedName("ratingValue")
     @Expose
     public double ratingValue;
-    @SerializedName("ratingValue")
+    @SerializedName("favourite")
     @Expose
     public Boolean favourite;
     @SerializedName("levelUp")
@@ -65,18 +64,32 @@ public class SongRecord {
     @Expose
     private String showMistakes;
 
+    public String _id;
+    public String usertoken;
+    public String googlephoto;
+
     public SongRecord () {
         this.songName = "";
+        this.artistName = "";
+        this.ratingValue = 0;
+        this.difficulty = 0;
+        this.speed = 0;
+        this.favourite = false;
+        this.usertoken = "";
+        this.googlephoto = null;
     }
 
-    public SongRecord(String songName, String artistName, Integer difficulty, Integer speed, double ratingValue)
+    public SongRecord(String songName, String artistName, Integer difficulty, Integer speed, double ratingValue, boolean fav, String token, String path)
     {
         this.songName = songName;
         this.artistName = artistName;
         this.difficulty = difficulty;
         this.speed = speed;
+        this.favourite = fav;
+        this.usertoken = token;
         this.levelUp = levelUp;
         this.ratingValue = ratingValue;
+        this.googlephoto = path;
         this.accelerate = accelerate;
         this.advancedSettings = advancedSettings;
         this.dateCreated = dateCreated;
@@ -227,6 +240,7 @@ public class SongRecord {
                 ", Speed=" + speed +
                 ", Rating=" + ratingValue +
                 ", Favourite=" + favourite +
+                " " + usertoken +
                 '}';
     }
 }

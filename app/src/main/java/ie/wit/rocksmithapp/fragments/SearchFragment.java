@@ -71,7 +71,7 @@ public void onCreate(Bundle savedInstanceState){
 
     setListView(listView);
 
-    mSwipeRefreshLayout =   (SwipeRefreshLayout) v.findViewById(R.id.coffee_swipe_refresh_layout);
+    mSwipeRefreshLayout =   (SwipeRefreshLayout) v.findViewById(R.id.song_swipe_refresh_layout);
     setSwipeRefreshLayout();
 
     return v;

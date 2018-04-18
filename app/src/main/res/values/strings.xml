@@ -18,6 +18,18 @@
     <string name="searchSongsLbl">Search Song\'s</string>
     <string name="appDesc">RocksmithApp provides the user with and easy way to manage a list of songs and your favourite songs.</string>
     <string name="appMoreInfo">For more information about RocksmithApp or to provide feedback please visit our website.</string>
+    <string name="updateCoffeeBtnLbl">Update a Song</string>
+    <string name="songRatingLbl">Star Rating</string>
+    <string name="songNameLbl">Name :</string>
+    <string name="artistNameLbl">Artist :</string>
+    <string name="difficultyLbl">Difficulty :</string>
+    <string name="songDetailsLbl">Full Song Details</string>
+    <string name="deleteSongsLbl">Delete Song\'s</string>
+    <string name="appHelpTitle">RocksmithApp Help</string>
+    <string name="appHelp">This is the help screen for RocksmithApp</string>
+    <string name="appHelpExtra">Basically\, if you need help on using this app, you probably shouldn\'t be using it</string>
+    <string name="linktoRegister">New to Rocksmith?\n Register at\n <a href='http://coffeemateweb.herokuapp.com'>http://coffeemateweb.herokuapp.com</a></string>
+    <string name="addASongLbl">Song Check In</string>
 
 
 </resources>

@@ -62,7 +62,7 @@ public class EditFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_edit, container, false);
 
-        titleSongName = ((TextView)v.findViewById(R.id.songNameTextView));
+        titleSongName = ((TextView)v.findViewById(R.id.songNameTitleTextView));
         titleArtistName = ((TextView)v.findViewById(R.id.artistNameTextView));
         songName = (EditText)v.findViewById(R.id.songNameEditText);
         artistName = (EditText)v.findViewById(R.id.artistNameEditText);

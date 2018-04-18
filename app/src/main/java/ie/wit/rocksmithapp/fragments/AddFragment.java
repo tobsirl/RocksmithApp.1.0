@@ -67,6 +67,14 @@ public class AddFragment extends Fragment implements View.OnClickListener, Callb
         return v;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        titleBar = (TextView) getActivity().findViewById(R.id.recentAddedBarTextView);
+        titleBar.setText(R.string.addASongLbl);
+    }
+
     public void onClick(View v) {
         songName = song.getText().toString();
         artistName = artist.getText().toString();
@@ -86,7 +94,7 @@ public class AddFragment extends Fragment implements View.OnClickListener, Callb
         if ((songName.length() > 0) && (artistName.length() > 0)
                 && (difficulty >= 0) && (speed >= 0)){
             SongRecord c = new SongRecord(songName, artistName,
-                    difficulty, speed, ratingValue);
+                    difficulty, speed, ratingValue, false, app.googleToken, app.googlePhotoURL);
 
             //app.coffeeList.add(c);
             callCreate = app.RocksmithAppService.createSong(app.googleToken,c);

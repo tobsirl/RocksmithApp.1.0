@@ -37,6 +37,7 @@ public class SongRecordFragment extends Fragment implements AdapterView.OnItemCl
         View.OnClickListener,
         AbsListView.MultiChoiceModeListener,
         Callback<List<SongRecord>> {
+
     protected static SongRecordListAdapter listAdapter;
     protected ListView listView;
     protected SongRecordFilter songRecordFilter;
@@ -69,9 +70,9 @@ public class SongRecordFragment extends Fragment implements AdapterView.OnItemCl
         // Inflate the layout for this fragment
         View v = null;
         v = inflater.inflate(R.layout.fragment_home, container, false);
-        listView = (ListView) v.findViewById(R.id.coffeeList);
+        listView = (ListView) v.findViewById(R.id.songList);
 
-        mSwipeRefreshLayout =   (SwipeRefreshLayout) v.findViewById(R.id.coffee_swipe_refresh_layout);
+        mSwipeRefreshLayout =   (SwipeRefreshLayout) v.findViewById(R.id.song_swipe_refresh_layout);
         setSwipeRefreshLayout();
 
         return v;
@@ -159,7 +160,7 @@ public class SongRecordFragment extends Fragment implements AdapterView.OnItemCl
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Bundle activityInfo = new Bundle();
-        activityInfo.putString("coffeeID", (String) view.getTag());
+        activityInfo.putString("songID", (String) view.getTag());
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         Fragment fragment = EditFragment.newInstance(activityInfo);
@@ -188,7 +189,7 @@ public class SongRecordFragment extends Fragment implements AdapterView.OnItemCl
     {
         switch (menuItem.getItemId())
         {
-            case R.id.menu_item_delete_coffee:
+            case R.id.menu_item_delete_song:
                 deleteSongRecords(actionMode);
                 return true;
             default:
@@ -257,7 +258,7 @@ public class SongRecordFragment extends Fragment implements AdapterView.OnItemCl
     @Override
     public void onFailure(Call<List<SongRecord>> call, Throwable t) {
         Toast.makeText(getActivity(),
-                "Coffee Service Unavailable. Try again later",
+                "Rocksmith Service Unavailable. Try again later",
                 Toast.LENGTH_LONG).show();
     }
 

@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -20,7 +21,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 import ie.wit.rocksmithapp.Main.RocksmithApp;
 import ie.wit.rocksmithapp.R;
@@ -34,6 +44,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                                             EditFragment.OnFragmentInteractionListener {
 
     public RocksmithApp app = RocksmithApp.getInstance();
+    private ImageView googlePhoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +74,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //SetUp GooglePhoto and Email for Drawer here
+        googlePhoto = (ImageView)navigationView.getHeaderView(0).findViewById(R.id.googlephoto);
+        getGooglePhoto(app.googlePhotoURL,googlePhoto);
+
+        TextView googleName = (TextView)navigationView.getHeaderView(0).findViewById(R.id.googlename);
+        googleName.setText(app.googleName);
+
+        TextView googleMail = (TextView)navigationView.getHeaderView(0).findViewById(R.id.googlemail);
+        googleMail.setText(app.googleMail);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
 
@@ -199,7 +220,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                         @Override
                         public void onResult(@NonNull Status status) {
                             if (status.isSuccess()) {
-                                Log.v("coffeemate", "User Logged out");
+                                Log.v("Rocksmith", "User Logged out");
                                 Intent intent = new Intent(Home.this, Login.class);
                                 startActivity(intent);
                                 finish();
@@ -216,7 +237,27 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         });
     }
 
-
     // [END signOut]
+
+    public void getGooglePhoto(String url, final ImageView googlePhoto) {
+        ImageRequest imgRequest = new ImageRequest(url,
+                new Response.Listener<Bitmap>() {
+                    @Override
+                    public void onResponse(Bitmap response) {
+                        app.googlePhoto = response;
+                        googlePhoto.setImageBitmap(app.googlePhoto);
+                    }
+                }, 0, 0, ImageView.ScaleType.FIT_XY, Bitmap.Config.ARGB_8888,
+
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("Something went wrong!");
+                        error.printStackTrace();
+                    }
+                });
+        // Add the request to the queue
+        app.add(imgRequest);
+    }
 
 }

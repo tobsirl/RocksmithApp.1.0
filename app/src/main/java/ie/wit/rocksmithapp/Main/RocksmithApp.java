@@ -1,8 +1,14 @@
 package ie.wit.rocksmithapp.Main;
 
 import android.app.Application;
+import android.graphics.Bitmap;
 import android.util.Log;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -18,19 +24,33 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RocksmithApp extends Application {
 
+    private RequestQueue mRequestQueue;
     private static RocksmithApp mInstance;
     public RocksmithAppService RocksmithAppService;
-    public List<SongRecord> songRecordList = new ArrayList<SongRecord>();
+    public List <SongRecord> songRecordList = new ArrayList<SongRecord>();
+
+    /* Client used to interact with Google APIs. */
+    public GoogleApiClient mGoogleApiClient;
+    public GoogleSignInOptions mGoogleSignInOptions;
+
+    public boolean signedIn = false;
+    public String googleToken;
+    public String googleName;
+    public String googleMail;
+    public String googlePhotoURL;
+    public Bitmap googlePhoto;
+    public int drawerID = 0;
 
     public static final String TAG = RocksmithApp.class.getName();
 
-    public String serviceURL = "http://coffeemateweb.herokuapp.com";
+    public String serviceURL = "https://rocksmithprogress.herokuapp.com";
 
     @Override
     public void onCreate() {
         super.onCreate();
         Log.v("rocksmith", "Rocksmith App Started");
         mInstance = this;
+        mRequestQueue = Volley.newRequestQueue(getApplicationContext());
 
         Gson gson = new GsonBuilder().create();
 
@@ -52,6 +72,19 @@ public class RocksmithApp extends Application {
 
     public static synchronized RocksmithApp getInstance() {
         return mInstance;
+    }
+
+    public RequestQueue getRequestQueue() {
+        return mRequestQueue;
+    }
+
+    public <T> void add(Request<T> req) {
+        req.setTag(TAG);
+        getRequestQueue().add(req);
+    }
+
+    public void cancel() {
+        mRequestQueue.cancelAll(TAG);
     }
 
     @Override

@@ -14,7 +14,7 @@
         android:textColor="@color/headerBGColor" />
 
     <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/coffee_swipe_refresh_layout"
+        android:id="@+id/song_swipe_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="5dp"
@@ -22,7 +22,7 @@
         android:layout_below="@+id/linearLayout">
 
         <ListView
-            android:id="@+id/coffeeList"
+            android:id="@+id/songList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center">
