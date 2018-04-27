@@ -17,8 +17,11 @@ import retrofit2.http.Path;
 
 public interface RocksmithAppService {
 
-    @GET("/api/songrecords/{token}")
-    Call<List<SongRecord>> getAllSongs(@Path("token") String token);
+    @GET("/api/songrecords/")
+    Call<List<SongRecord>> getAllSongs();
+
+//    @GET("/api/songrecords/{token}")
+//    Call<List<SongRecord>> getAllSongs(@Path("token") String token);
 
     @GET("/api/songrecords/{token}/{id}")
     Call<SongRecord> retrieveSongs(@Path("token") String token,

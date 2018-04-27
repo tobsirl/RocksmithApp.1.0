@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -23,7 +22,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import ie.wit.rocksmithapp.Main.RocksmithApp;
+import ie.wit.rocksmithapp.main.RocksmithApp;
 import ie.wit.rocksmithapp.R;
 import ie.wit.rocksmithapp.adapters.SongRecordFilter;
 import ie.wit.rocksmithapp.adapters.SongRecordListAdapter;
@@ -93,7 +92,8 @@ public class SongRecordFragment extends Fragment implements AdapterView.OnItemCl
     }
 
     public void getAllSongRecords() {
-        callRetrieve = app.RocksmithAppService.getAllSongs(app.googleToken);
+        callRetrieve = app.RocksmithAppService.getAllSongs();
+        //callRetrieve = app.RocksmithAppService.getAllSongs(app.googleToken);
         callRetrieve.enqueue(this);
     }
 

@@ -2,7 +2,6 @@ package ie.wit.rocksmithapp.activities;
 
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -21,7 +20,7 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
 import ie.wit.rocksmithapp.R;
-import ie.wit.rocksmithapp.Main.RocksmithApp;
+import ie.wit.rocksmithapp.main.RocksmithApp;
 
 
 public class Login extends FragmentActivity implements

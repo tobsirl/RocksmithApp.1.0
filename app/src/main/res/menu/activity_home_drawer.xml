@@ -22,6 +22,10 @@
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
             android:title="Take a Photo" />
+        <item
+            android:id="@+id/nav_youtube"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Watch a video" />
     </group>
 
     <item android:title="Communicate &amp; Locate">

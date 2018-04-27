@@ -1,5 +1,20 @@
 <resources>
     <string name="app_name">RocksmithApp</string>
+    <string name="thumbnail_image_view_desc">Youtube Video thumbnail image view</string>
+
+    <!--  we need to use video ids instead of video link  -->
+    <string-array name="video_id_array">
+        <item>dgoudpU0kL0</item>
+        <item>96y0vyyPOoA</item>
+        <item>4LxledfIUzQ</item>
+        <item>hdN-cWbjAn8</item>
+        <item>MUVGoNr1KLM</item>
+        <item>76eyls9cUEU</item>
+        <item>_c6VtcLUk5o</item>
+        <item>OsS5RH2qH_w</item>
+        <item>_v97kduvpm4</item>
+        <item>5ACRo_9OV-Y</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -28,7 +43,7 @@
     <string name="appHelpTitle">RocksmithApp Help</string>
     <string name="appHelp">This is the help screen for RocksmithApp</string>
     <string name="appHelpExtra">Basically\, if you need help on using this app, you probably shouldn\'t be using it</string>
-    <string name="linktoRegister">New to Rocksmith?\n Register at\n <a href='http://coffeemateweb.herokuapp.com'>http://coffeemateweb.herokuapp.com</a></string>
+    <string name="linktoRegister">New to Rocksmith?\n Register at\n <a href='https://rocksmithprogress.herokuapp.com'>https://rocksmithprogress.herokuapp.com</a></string>
     <string name="addASongLbl">Song Check In</string>
 
 

@@ -1,4 +1,4 @@
-package ie.wit.rocksmithapp.Main;
+package ie.wit.rocksmithapp.main;
 
 import android.app.Application;
 import android.graphics.Bitmap;

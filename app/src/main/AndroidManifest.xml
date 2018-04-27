@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name="ie.wit.rocksmithapp.Main.RocksmithApp">
+        android:name="ie.wit.rocksmithapp.main.RocksmithApp">
         <activity
             android:name="ie.wit.rocksmithapp.activities.Splash"
             android:configChanges="orientation|keyboardHidden"

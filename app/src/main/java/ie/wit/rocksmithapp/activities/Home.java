@@ -32,13 +32,14 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
-import ie.wit.rocksmithapp.Main.RocksmithApp;
+import ie.wit.rocksmithapp.main.RocksmithApp;
 import ie.wit.rocksmithapp.R;
 import ie.wit.rocksmithapp.fragments.AddFragment;
 import ie.wit.rocksmithapp.fragments.EditFragment;
 import ie.wit.rocksmithapp.fragments.HelpFragment;
 import ie.wit.rocksmithapp.fragments.SearchFragment;
 import ie.wit.rocksmithapp.fragments.SongRecordFragment;
+
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
                                             EditFragment.OnFragmentInteractionListener {

@@ -12,7 +12,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import ie.wit.rocksmithapp.Main.RocksmithApp;
+import ie.wit.rocksmithapp.main.RocksmithApp;
 import ie.wit.rocksmithapp.R;
 import ie.wit.rocksmithapp.model.SongRecord;
 import retrofit2.Call;

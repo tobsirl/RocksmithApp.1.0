@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import ie.wit.rocksmithapp.Main.RocksmithApp;
+import ie.wit.rocksmithapp.main.RocksmithApp;
 import ie.wit.rocksmithapp.R;
 import ie.wit.rocksmithapp.activities.Home;
 import ie.wit.rocksmithapp.model.SongRecord;
