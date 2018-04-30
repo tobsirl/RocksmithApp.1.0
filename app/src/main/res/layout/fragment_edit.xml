@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ie.cm.fragments.EditFragment">
+    tools:context="ie.wit.rocksmithapp.fragments.EditFragment">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="fill_parent"
@@ -26,11 +26,11 @@
             tools:layout_constraintTop_creator="1" />
 
         <Button
-            android:id="@+id/saveCoffeeBtn"
+            android:id="@+id/saveSongBtn"
             style="@android:style/Holo.Light.ButtonBar"
             android:layout_width="369dp"
             android:layout_height="68dp"
-            android:layout_marginBottom="1dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:drawableTop="@drawable/ic_save_coffee"
             android:onClick="update"
@@ -41,20 +41,24 @@
             app:layout_constraintRight_toLeftOf="@+id/songRatingBar"
             app:layout_constraintTop_toBottomOf="@+id/songRatingBar"
             tools:layout_constraintBottom_creator="1"
-            tools:layout_constraintLeft_creator="1"
-            app:layout_constraintVertical_bias="0.054" />
+            tools:layout_constraintLeft_creator="1" />
 
         <RatingBar
             android:id="@+id/songRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginLeft="8dp"
             android:numStars="5"
             android:progressTint="@color/bannerBGColor"
             android:rating="2"
             android:stepSize="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="@+id/ratingTextView"
             app:layout_constraintTop_toBottomOf="@+id/ratingTextView"
+            app:layout_constraintVertical_bias="0.0"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintTop_creator="1" />
 
@@ -62,17 +66,17 @@
             android:id="@+id/songNameEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:inputType="textShortMessage"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="@+id/artistNameEditText"
             app:layout_constraintRight_toRightOf="@+id/artistNameEditText"
             app:layout_constraintTop_toBottomOf="@+id/barTextView"
+            tools:ignore="LabelFor"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1"
-            android:layout_marginTop="10dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            tools:ignore="LabelFor">
+            tools:layout_constraintTop_creator="1">
 
             <requestFocus />
 
@@ -113,17 +117,17 @@
             android:id="@+id/artistNameEditText"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:inputType="textShortMessage"
             app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintLeft_toRightOf="@+id/difficultyEditText"
             app:layout_constraintRight_toRightOf="@+id/difficultyEditText"
             app:layout_constraintTop_toBottomOf="@+id/songNameEditText"
+            tools:ignore="LabelFor"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1"
-            tools:ignore="LabelFor">
+            tools:layout_constraintTop_creator="1">
 
         </EditText>
 
@@ -131,12 +135,13 @@
             android:id="@+id/ratingTextView"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="@string/songRatingLbl"
             android:textColor="@color/appFontColor"
             android:textSize="18sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/difficultyEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintTop_creator="1" />
 
@@ -176,6 +181,7 @@
             android:id="@+id/shopTextView"
             android:layout_width="wrap_content"
             android:layout_height="22dp"
+            android:layout_marginStart="8dp"
             android:text="@string/artistNameLbl"
             android:textColor="@color/appFontColor"
             android:textSize="18sp"
@@ -189,13 +195,12 @@
             android:id="@+id/difficultyTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="21dp"
+            android:layout_marginStart="8dp"
             android:text="@string/difficultyLbl"
             android:textColor="@color/appFontColor"
             android:textSize="18sp"
-            app:layout_constraintLeft_toLeftOf="@+id/shopTextView"
-            app:layout_constraintRight_toRightOf="@+id/shopTextView"
-            app:layout_constraintTop_toBottomOf="@+id/shopTextView"
+            app:layout_constraintBaseline_toBaselineOf="@+id/difficultyEditText"
+            app:layout_constraintStart_toStartOf="parent"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1"
             tools:layout_constraintTop_creator="1" />
@@ -212,6 +217,29 @@
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintTop_creator="1"
             android:layout_marginStart="1dp" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/favouriteImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/difficultyEditText" />
+
+        <TextView
+            android:id="@+id/speedTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/speedTextViewLbl"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/editText"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 

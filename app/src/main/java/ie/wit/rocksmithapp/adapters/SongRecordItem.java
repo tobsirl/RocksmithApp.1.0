@@ -19,11 +19,11 @@ public class SongRecordItem {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.songrecordrow, parent, false);
-        view.setTag(songRecord._id);
+        view.setTag(songRecord.songId);
 
         updateControls(songRecord);
 
-        ImageView imgDelete = (ImageView) view.findViewById(R.id.imgDelete);
+        ImageView imgDelete = view.findViewById(R.id.imgDelete);
         imgDelete.setTag(songRecord);
         imgDelete.setOnClickListener(deleteListener);
     }
@@ -32,14 +32,14 @@ public class SongRecordItem {
         ((TextView) view.findViewById(R.id.rowSongName)).setText(songRecord.songName);
         ((TextView) view.findViewById(R.id.rowArtistName)).setText(songRecord.artistName);
         ((TextView) view.findViewById(R.id.rowRating)).setText(songRecord.ratingValue + " *");
-        ((TextView) view.findViewById(R.id.rowDifficulty)).setText(songRecord.difficulty);
-        ((TextView) view.findViewById(R.id.rowSpeed)).setText(songRecord.speed);
+        ((TextView) view.findViewById(R.id.rowDifficulty)).setText(String.valueOf(songRecord.difficulty));
+        ((TextView) view.findViewById(R.id.rowSpeed)).setText(String.valueOf(songRecord.speed));
 
-        ImageView imgIcon = (ImageView) view.findViewById(R.id.RowImage);
+        //ImageView imgIcon = view.findViewById(R.id.RowImage);
 
-        if (songRecord.favourite == true)
-            imgIcon.setImageResource(R.drawable.ic_favourite_on);
-        else
-            imgIcon.setImageResource(R.drawable.ic_favourite_off);
+//        if (songRecord.favourite)
+//            imgIcon.setImageResource(R.drawable.ic_favourite_on);
+//        else
+//            imgIcon.setImageResource(R.drawable.ic_favourite_off);
     }
 }

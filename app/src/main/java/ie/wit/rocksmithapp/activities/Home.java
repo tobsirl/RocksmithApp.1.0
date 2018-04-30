@@ -39,6 +39,11 @@ import ie.wit.rocksmithapp.fragments.EditFragment;
 import ie.wit.rocksmithapp.fragments.HelpFragment;
 import ie.wit.rocksmithapp.fragments.SearchFragment;
 import ie.wit.rocksmithapp.fragments.SongRecordFragment;
+import ie.wit.rocksmithapp.model.SongRecord;
+//import io.realm.Realm;
+import io.realm.RealmResults;
+import io.realm.SyncConfiguration;
+//import io.realm.SyncUser;
 
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
@@ -46,15 +51,17 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     public RocksmithApp app = RocksmithApp.getInstance();
     private ImageView googlePhoto;
+    //public Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,23 +74,23 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                         }).show();
             }
         });
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         //SetUp GooglePhoto and Email for Drawer here
-        googlePhoto = (ImageView)navigationView.getHeaderView(0).findViewById(R.id.googlephoto);
+        googlePhoto = navigationView.getHeaderView(0).findViewById(R.id.googlephoto);
         getGooglePhoto(app.googlePhotoURL,googlePhoto);
 
-        TextView googleName = (TextView)navigationView.getHeaderView(0).findViewById(R.id.googlename);
+        TextView googleName = navigationView.getHeaderView(0).findViewById(R.id.googlename);
         googleName.setText(app.googleName);
 
-        TextView googleMail = (TextView)navigationView.getHeaderView(0).findViewById(R.id.googlemail);
+        TextView googleMail = navigationView.getHeaderView(0).findViewById(R.id.googlemail);
         googleMail.setText(app.googleMail);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -95,7 +102,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -144,7 +151,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -170,7 +177,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         dialog.setTitle("About RocksmithApp");
         dialog.setContentView(R.layout.info);
 
-        TextView currentVersion = (TextView) dialog
+        TextView currentVersion = dialog
                 .findViewById(R.id.versionTextView);
         currentVersion.setText("1.0.0");
 
@@ -217,6 +224,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
                 //FirebaseAuth.getInstance().signOut();
                 if(app.mGoogleApiClient.isConnected()) {
+//                    SyncUser syncUser = SyncUser.current(); // Logout of Realm Cloud
+//                    if (syncUser != null) {
+//                        syncUser.logOut();
+//                        Log.v("rocksmithapp", "Logout of Realm Cloud");
+//                    }
                     Auth.GoogleSignInApi.signOut(app.mGoogleApiClient).setResultCallback(new ResultCallback<Status>() {
                         @Override
                         public void onResult(@NonNull Status status) {
@@ -241,24 +253,31 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     // [END signOut]
 
     public void getGooglePhoto(String url, final ImageView googlePhoto) {
-        ImageRequest imgRequest = new ImageRequest(url,
-                new Response.Listener<Bitmap>() {
-                    @Override
+      ImageRequest imgRequest = new ImageRequest(url,
+               new Response.Listener<Bitmap>() {
+                   @Override
                     public void onResponse(Bitmap response) {
-                        app.googlePhoto = response;
-                        googlePhoto.setImageBitmap(app.googlePhoto);
-                    }
+                       app.googlePhoto = response;
+                       googlePhoto.setImageBitmap(app.googlePhoto);
+                   }
                 }, 0, 0, ImageView.ScaleType.FIT_XY, Bitmap.Config.ARGB_8888,
 
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        System.out.println("Something went wrong!");
-                        error.printStackTrace();
+                       System.out.println("Something went wrong!");
+                       error.printStackTrace();
                     }
                 });
         // Add the request to the queue
         app.add(imgRequest);
     }
+
+//    private RealmResults<SongRecord> setUpRealm() {
+//        Realm.setDefaultConfiguration(SyncConfiguration.automatic());
+//       realm = Realm.getDefaultInstance();
+//
+//       return realm.where(SongRecord.class).findAllAsync();
+//    }
 
 }

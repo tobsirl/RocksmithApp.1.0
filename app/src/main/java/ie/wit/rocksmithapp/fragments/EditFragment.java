@@ -62,13 +62,13 @@ public class EditFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_edit, container, false);
 
-        titleSongName = ((TextView)v.findViewById(R.id.songNameTitleTextView));
-        titleArtistName = ((TextView)v.findViewById(R.id.artistNameTextView));
-        songName = (EditText)v.findViewById(R.id.songNameEditText);
-        artistName = (EditText)v.findViewById(R.id.artistNameEditText);
-        difficulty = (EditText)v.findViewById(R.id.difficultyEditText);
-        ratingBar = (RatingBar) v.findViewById(R.id.songRatingBar);
-        favouriteImage = (ImageView) v.findViewById(R.id.favouriteImageView);
+        titleSongName = v.findViewById(R.id.songNameTitleTextView);
+        titleArtistName = v.findViewById(R.id.artistNameTextView);
+        songName = v.findViewById(R.id.songNameEditText);
+        artistName = v.findViewById(R.id.artistNameEditText);
+        difficulty = v.findViewById(R.id.difficultyEditText);
+        ratingBar = v.findViewById(R.id.songRatingBar);
+        favouriteImage = v.findViewById(R.id.favouriteImageView);
 
         return v;
     }
@@ -77,7 +77,7 @@ public class EditFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        Call<SongRecord> callRetrieve = app.RocksmithAppService.retrieveSongs(app.googleToken, songID);
+        Call<SongRecord> callRetrieve = app.RocksmithAppService.retrieveSongs(songID);
         callRetrieve.enqueue(new Callback<SongRecord>() {
             @Override
             public void onResponse(Call<SongRecord> call, Response<SongRecord> response) {
@@ -100,7 +100,7 @@ public class EditFragment extends Fragment {
         difficulty.setText(aSong.difficulty);
         ratingBar.setRating((float)aSong.ratingValue);
 
-        if (aSong.favourite == true) {
+        if (aSong.favourite) {
             favouriteImage.setImageResource(R.drawable.ic_favourite_on);
             isFavourite = true;
         } else {
@@ -178,7 +178,7 @@ public class EditFragment extends Fragment {
                 aSong.ratingValue = ratingValue;
             }
 
-            Call<SongRecord> callUpdate = app.RocksmithAppService.updateSong(app.googleToken,
+            Call<SongRecord> callUpdate = app.RocksmithAppService.updateSong(
                     aSong._id,
                     aSong);
             callUpdate.enqueue(new Callback<SongRecord>() {

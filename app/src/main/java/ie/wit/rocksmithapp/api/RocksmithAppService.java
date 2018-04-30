@@ -20,23 +20,19 @@ public interface RocksmithAppService {
     @GET("/api/songrecords/")
     Call<List<SongRecord>> getAllSongs();
 
-//    @GET("/api/songrecords/{token}")
-//    Call<List<SongRecord>> getAllSongs(@Path("token") String token);
+//   @GET("/api/songrecords/{token}")
+//   Call<List<SongRecord>> getAllSongs(@Path("token") String token);
 
-    @GET("/api/songrecords/{token}/{id}")
-    Call<SongRecord> retrieveSongs(@Path("token") String token,
-                                          @Path("id") String id);
+    @GET("/api/songrecords/{id}")
+    Call<SongRecord> retrieveSongs(@Path("id") String id);
 
-    @DELETE("/api/songrecords/{token}/{id}")
-    Call<List<SongRecord>> deleteSong(@Path("token") String token,
-                                @Path("id") String id);
+    @DELETE("/api/songrecords/{id}")
+    Call<List<SongRecord>> deleteSong(@Path("id") String id);
 
-    @POST("/api/songrecords/{token}")
-    Call<SongRecord> createSong(@Path("token") String token,
-                                @Body SongRecord songRecord);
+    @POST("/api/songrecords/")
+    Call<SongRecord> createSong(@Body SongRecord songRecord);
 
-    @PUT("/api/songrecords/{token}/{id}")
-    Call<SongRecord> updateSong(@Path("token") String token,
-                                  @Path("id") String id,
+    @PUT("/api/songrecords/{id}")
+    Call<SongRecord> updateSong(@Path("id") String id,
                                   @Body SongRecord songRecord);
 }

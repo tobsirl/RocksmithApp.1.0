@@ -45,6 +45,8 @@
     <string name="appHelpExtra">Basically\, if you need help on using this app, you probably shouldn\'t be using it</string>
     <string name="linktoRegister">New to Rocksmith?\n Register at\n <a href='https://rocksmithprogress.herokuapp.com'>https://rocksmithprogress.herokuapp.com</a></string>
     <string name="addASongLbl">Song Check In</string>
+    <string name="add_song">Add Song</string>
+    <string name="speedTextViewLbl">Speed :</string>
 
 
 </resources>

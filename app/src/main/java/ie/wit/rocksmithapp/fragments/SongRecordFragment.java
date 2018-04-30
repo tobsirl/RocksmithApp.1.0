@@ -27,6 +27,10 @@ import ie.wit.rocksmithapp.R;
 import ie.wit.rocksmithapp.adapters.SongRecordFilter;
 import ie.wit.rocksmithapp.adapters.SongRecordListAdapter;
 import ie.wit.rocksmithapp.model.SongRecord;
+import io.realm.Realm;
+import io.realm.RealmResults;
+import io.realm.Sort;
+import io.realm.SyncConfiguration;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,9 +38,9 @@ import retrofit2.Response;
 
 public class SongRecordFragment extends Fragment implements AdapterView.OnItemClickListener,
         View.OnClickListener,
-        AbsListView.MultiChoiceModeListener,
-        Callback<List<SongRecord>> {
+        AbsListView.MultiChoiceModeListener, Callback<List<SongRecord>> {
 
+    private Realm realm;
     protected static SongRecordListAdapter listAdapter;
     protected ListView listView;
     protected SongRecordFilter songRecordFilter;
@@ -69,9 +73,9 @@ public class SongRecordFragment extends Fragment implements AdapterView.OnItemCl
         // Inflate the layout for this fragment
         View v = null;
         v = inflater.inflate(R.layout.fragment_home, container, false);
-        listView = (ListView) v.findViewById(R.id.songList);
+        listView = v.findViewById(R.id.songList);
 
-        mSwipeRefreshLayout =   (SwipeRefreshLayout) v.findViewById(R.id.song_swipe_refresh_layout);
+        mSwipeRefreshLayout = v.findViewById(R.id.song_swipe_refresh_layout);
         setSwipeRefreshLayout();
 
         return v;
@@ -95,13 +99,16 @@ public class SongRecordFragment extends Fragment implements AdapterView.OnItemCl
         callRetrieve = app.RocksmithAppService.getAllSongs();
         //callRetrieve = app.RocksmithAppService.getAllSongs(app.googleToken);
         callRetrieve.enqueue(this);
+//        Realm.setDefaultConfiguration(SyncConfiguration.automatic());
+//        realm = Realm.getDefaultInstance();
+//        RealmResults<SongRecord> songRecords = realm.where(SongRecord.class).findAllAsync();
     }
 
     @Override
     public void onResume() {
         super.onResume();
 
-        titleBar = (TextView)getActivity().findViewById(R.id.recentAddedBarTextView);
+        titleBar = getActivity().findViewById(R.id.recentAddedBarTextView);
         titleBar.setText(R.string.recentlyViewedLbl);
         getAllSongRecords();
     }
@@ -141,7 +148,7 @@ public class SongRecordFragment extends Fragment implements AdapterView.OnItemCl
     }
 
     public void deleteASong(String id) {
-        Call<List<SongRecord>> callDelete = app.RocksmithAppService.deleteSong(app.googleToken,id);
+        Call<List<SongRecord>> callDelete = app.RocksmithAppService.deleteSong(id);
         callDelete.enqueue(new Callback<List<SongRecord>>() {
             @Override
             public void onResponse(Call<List<SongRecord>> call, Response<List<SongRecord>> response) {
@@ -202,7 +209,7 @@ public class SongRecordFragment extends Fragment implements AdapterView.OnItemCl
         SongRecord c = null;
         for (int i = listAdapter.getCount() - 1; i >= 0; i--) {
             if (listView.isItemChecked(i)) {
-                deleteASong(listAdapter.getItem(i)._id);
+                deleteASong(listAdapter.getItem(i).songId);
             }
         }
         actionMode.finish();

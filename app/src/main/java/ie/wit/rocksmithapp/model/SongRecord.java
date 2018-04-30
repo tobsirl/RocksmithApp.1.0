@@ -3,12 +3,21 @@ package ie.wit.rocksmithapp.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.UUID;
+
+//import io.realm.RealmObject;
+//import io.realm.annotations.PrimaryKey;
+//import io.realm.annotations.Required;
+
 /**
  * Created by Paul on 3/8/2018.
  */
 
 
 public class SongRecord {
+//    @PrimaryKey
+//    @Required
+    public String songId;
     @SerializedName("songName")
     @Expose
     public String songName;
@@ -71,18 +80,12 @@ public class SongRecord {
 
 
     public SongRecord () {
-        this.songName = "";
-        this.artistName = "";
-        this.ratingValue = 0;
-        this.difficulty = 0;
-        this.speed = 0;
-        this.favourite = false;
-        this.usertoken = "";
-        this.googlephoto = null;
+
     }
 
     public SongRecord(String songName, String artistName, Integer difficulty, Integer speed, double ratingValue, boolean fav, String token, String path)
     {
+        this.songId = UUID.randomUUID().toString();
         this.songName = songName;
         this.artistName = artistName;
         this.difficulty = difficulty;
@@ -236,14 +239,12 @@ public class SongRecord {
 
     @Override
     public String toString() {
-        return "SongRecord{" +
-                "Song='" + songName + '\'' +
-                ", Artist='" + artistName + '\'' +
+        return "SongRecord [Song=" + songName  +
+                ", Artist=" + artistName +
                 ", Difficulty=" + difficulty +
                 ", Speed=" + speed +
                 ", Rating=" + ratingValue +
                 ", Favourite=" + favourite +
-                " " + usertoken +
-                '}';
+                " " + usertoken + "]";
     }
 }

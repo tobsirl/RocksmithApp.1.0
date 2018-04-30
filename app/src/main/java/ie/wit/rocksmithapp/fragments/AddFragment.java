@@ -23,7 +23,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class AddFragment extends Fragment implements View.OnClickListener, Callback<SongRecord> {
+public class AddFragment extends Fragment implements View.OnClickListener,
+        Callback<SongRecord> {
     private TextView titleBar;
     private String 		songName, artistName;
     private Integer 		difficulty, speed;
@@ -57,12 +58,12 @@ public class AddFragment extends Fragment implements View.OnClickListener, Callb
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_add, container, false);
 
-        Button saveButton = (Button) v.findViewById(R.id.saveSongBtn);
-        song = (EditText) v.findViewById(R.id.songEditText);
-        artist = (EditText) v.findViewById(R.id.artistEditText);
-        difficultyText = (EditText) v.findViewById(R.id.difficultyEditText);
-        speedText = (EditText) v.findViewById(R.id.speedEditText);
-        ratingBar = (RatingBar) v.findViewById(R.id.songRatingBar);
+        Button saveButton = v.findViewById(R.id.saveSongBtn);
+        song = v.findViewById(R.id.songEditText);
+        artist = v.findViewById(R.id.artistEditText);
+        difficultyText = v.findViewById(R.id.difficultyEditText);
+        speedText = v.findViewById(R.id.speedEditText);
+        ratingBar = v.findViewById(R.id.songRatingBar);
         saveButton.setOnClickListener(this);
         return v;
     }
@@ -71,7 +72,7 @@ public class AddFragment extends Fragment implements View.OnClickListener, Callb
     public void onResume() {
         super.onResume();
 
-        titleBar = (TextView) getActivity().findViewById(R.id.recentAddedBarTextView);
+        titleBar = getActivity().findViewById(R.id.recentAddedBarTextView);
         titleBar.setText(R.string.addASongLbl);
     }
 
@@ -96,8 +97,8 @@ public class AddFragment extends Fragment implements View.OnClickListener, Callb
             SongRecord c = new SongRecord(songName, artistName,
                     difficulty, speed, ratingValue, false, app.googleToken, app.googlePhotoURL);
 
-            //app.coffeeList.add(c);
-            callCreate = app.RocksmithAppService.createSong(app.googleToken,c);
+            app.songRecordList.add(c);
+            callCreate = app.RocksmithAppService.createSong(c);
             callCreate.enqueue(this);
 
         } else

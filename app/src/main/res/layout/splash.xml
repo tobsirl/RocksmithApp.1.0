@@ -5,6 +5,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/splash"
     android:orientation="vertical"
-    tools:context=".activities.Splash" >
+    tools:context="ie.wit.rocksmithapp.activities.Splash" >
 
 </LinearLayout>

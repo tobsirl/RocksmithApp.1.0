@@ -60,18 +60,18 @@ public void onCreate(Bundle savedInstanceState){
     spinnerAdapter
             .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-    Spinner spinner = ((Spinner) v.findViewById(R.id.searchSongTypeSpinner));
+    Spinner spinner = v.findViewById(R.id.searchSongTypeSpinner);
     spinner.setAdapter(spinnerAdapter);
     spinner.setOnItemSelectedListener(this);
 
-    EditText nameText = (EditText)v.findViewById(R.id.searchSongNameEditText);
+    EditText nameText = v.findViewById(R.id.searchSongNameEditText);
     nameText.addTextChangedListener(this);
 
-    listView = (ListView) v.findViewById(R.id.songList); //Bind to the list on our Search layout
+    listView = v.findViewById(R.id.songList); //Bind to the list on our Search layout
 
     setListView(listView);
 
-    mSwipeRefreshLayout =   (SwipeRefreshLayout) v.findViewById(R.id.song_swipe_refresh_layout);
+    mSwipeRefreshLayout = v.findViewById(R.id.song_swipe_refresh_layout);
     setSwipeRefreshLayout();
 
     return v;
