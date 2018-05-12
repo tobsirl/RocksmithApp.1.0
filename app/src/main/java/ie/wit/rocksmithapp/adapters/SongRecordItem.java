@@ -19,7 +19,7 @@ public class SongRecordItem {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.songrecordrow, parent, false);
-        view.setTag(songRecord.songId);
+        view.setTag(songRecord._id);
 
         updateControls(songRecord);
 
@@ -31,7 +31,7 @@ public class SongRecordItem {
     private void updateControls(SongRecord songRecord) {
         ((TextView) view.findViewById(R.id.rowSongName)).setText(songRecord.songName);
         ((TextView) view.findViewById(R.id.rowArtistName)).setText(songRecord.artistName);
-        ((TextView) view.findViewById(R.id.rowRating)).setText(songRecord.ratingValue + " *");
+        //((TextView) view.findViewById(R.id.rowRating)).setText(songRecord.ratingValue + " *");
         ((TextView) view.findViewById(R.id.rowDifficulty)).setText(String.valueOf(songRecord.difficulty));
         ((TextView) view.findViewById(R.id.rowSpeed)).setText(String.valueOf(songRecord.speed));
 

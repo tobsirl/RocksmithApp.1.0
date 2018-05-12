@@ -3,7 +3,6 @@ package ie.wit.rocksmithapp.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.ActionMode;
@@ -13,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 
 import ie.wit.rocksmithapp.R;
@@ -114,6 +112,10 @@ public void onCreate(Bundle savedInstanceState){
                 songRecordFilter.setFilter("all");
             } else if (selected.equals("Favourites")) {
                 songRecordFilter.setFilter("favourites");
+            } else if (selected.equals("Songs")) { // added extra filtering
+                songRecordFilter.setFilter("songs");
+            } else if (selected.equals("Artists")) {
+                songRecordFilter.setFilter("artists");
             }
 
             String filterText = ((EditText)getActivity()

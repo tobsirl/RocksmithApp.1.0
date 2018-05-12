@@ -24,21 +24,21 @@
             android:title="Take a Photo" />
         <item
             android:id="@+id/nav_youtube"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_youtube"
             android:title="Watch a video" />
     </group>
 
-    <item android:title="Communicate &amp; Locate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_map"
-                android:icon="@drawable/ic_menu_map"
-                android:title="View on Map" />
-        </menu>
-    </item>
+    <!--<item android:title="Communicate &amp; Locate">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_share"-->
+                <!--android:icon="@drawable/ic_menu_share"-->
+                <!--android:title="Share" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_map"-->
+                <!--android:icon="@drawable/ic_menu_map"-->
+                <!--android:title="View on Map" />-->
+        <!--</menu>-->
+    <!--</item>-->
 
 </menu>

@@ -5,9 +5,9 @@
     android:id="@+id/RelativeLayout1"
     style="@style/appLayoutTheme"
     android:layout_width="fill_parent"
-    android:layout_height="46dp"
+    android:layout_height="60dp"
     android:background="@drawable/background_activated"
-    android:padding="8dp" >
+    android:padding="8dp">
 
     <ImageView
         android:id="@+id/RowImage"
@@ -23,7 +23,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/imgDelete"
@@ -39,28 +40,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/rowSongName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/RowImage"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
         android:layout_toRightOf="@+id/RowImage"
         android:gravity="center_vertical"
         android:text="Song Name"
         android:textColor="@color/appFooterFontColor"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rowArtistName"
         app:layout_constraintStart_toEndOf="@+id/RowImage"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_toEndOf="@+id/RowImage" />
 
     <TextView
         android:id="@+id/rowArtistName"
@@ -68,78 +68,71 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/RowImage"
         android:layout_alignLeft="@+id/rowSongName"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
         android:gravity="center_vertical"
         android:text="Artist Name"
         android:textColor="@color/textBGColor"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rowDifficulty"
-        app:layout_constraintStart_toEndOf="@+id/rowSongName"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,SmallSp" />
-
-    <TextView
-        android:id="@+id/rowRating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imgDelete"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_toLeftOf="@+id/imgDelete"
-        android:gravity="center_vertical"
-        android:text="5.0 *"
-        android:textColor="@color/textBGColor"
-        android:textSize="11sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgDelete"
-        app:layout_constraintStart_toEndOf="@+id/rowSpeed"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,SmallSp" />
+        app:layout_constraintStart_toEndOf="@+id/RowImage"
+        tools:ignore="HardcodedText,SmallSp"
+        android:layout_alignStart="@+id/rowSongName" />
 
     <TextView
         android:id="@+id/rowDifficulty"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
         android:gravity="center_vertical"
         android:text="Difficulty"
         android:textColor="@color/appFooterFontColor"
         android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rowSpeed"
-        app:layout_constraintStart_toEndOf="@+id/rowArtistName"
+        app:layout_constraintEnd_toStartOf="@+id/imgDelete"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/rowSpeed"
-        android:layout_width="wrap_content"
-        android:layout_height="16dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/rowDifficulty"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="Speed"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rowRating"
-        app:layout_constraintStart_toEndOf="@+id/rowDifficulty"
+        app:layout_constraintEnd_toStartOf="@+id/imgDelete"
+        app:layout_constraintStart_toStartOf="@+id/rowDifficulty" />
+
+    <TextView
+        android:id="@+id/songrecordrowDifficultyText"
+        android:layout_width="56dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/difficultyLbl"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/rowDifficulty"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/songrecordrowSpeedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/speedTextViewLbl"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/songrecordrowDifficultyText" />
 
 </android.support.constraint.ConstraintLayout>

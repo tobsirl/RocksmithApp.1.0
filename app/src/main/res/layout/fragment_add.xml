@@ -21,8 +21,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:ems="10"
+            android:hint="@string/add_song_hint"
             android:inputType="textPersonName"
-            android:text="Name"
             app:layout_constraintBottom_toTopOf="@+id/artistEditText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,8 +38,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:ems="10"
+            android:hint="@string/add_artist_hint"
             android:inputType="textPersonName"
-            android:text="Name"
             app:layout_constraintBottom_toTopOf="@+id/difficultyEditText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +54,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:ems="10"
+            android:hint="@string/add_difficulty_hint"
             android:inputType="number"
             app:layout_constraintBottom_toTopOf="@+id/speedEditText"
             app:layout_constraintEnd_toEndOf="parent"
@@ -70,6 +71,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:ems="10"
+            android:hint="@string/add_speed_hint"
             android:inputType="number"
             app:layout_constraintBottom_toTopOf="@+id/songRatingBar"
             app:layout_constraintEnd_toEndOf="parent"
@@ -94,14 +96,16 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:text="Artist"
+            android:text="@string/artistNameLbl"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/artistEditText"
             app:layout_constraintEnd_toStartOf="@+id/artistEditText"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/saveSongBtn"
+            style="@android:style/Holo.Light.ButtonBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -114,7 +118,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/songRatingBar"
-            app:layout_constraintVertical_bias="0.75" />
+            app:layout_constraintVertical_bias="0.75"
+            tools:drawableTop="@drawable/ic_save_coffee" />
 
         <TextView
             android:id="@+id/textView"
@@ -122,8 +127,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:layout_marginStart="8dp"
-            android:text="Song"
+            android:text="@string/songNameLbl"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/songEditText"
             app:layout_constraintEnd_toStartOf="@+id/songEditText"
             app:layout_constraintStart_toStartOf="parent" />
@@ -134,8 +140,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:text="Difficulity"
+            android:text="@string/difficultyLbl"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/difficultyEditText"
             app:layout_constraintEnd_toStartOf="@+id/difficultyEditText"
             app:layout_constraintStart_toStartOf="parent" />
@@ -146,8 +153,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:text="Speed"
+            android:text="@string/speedTextViewLbl"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/speedEditText"
             app:layout_constraintEnd_toStartOf="@+id/speedEditText"
             app:layout_constraintStart_toStartOf="parent" />

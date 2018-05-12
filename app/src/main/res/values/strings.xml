@@ -35,9 +35,9 @@
     <string name="appMoreInfo">For more information about RocksmithApp or to provide feedback please visit our website.</string>
     <string name="updateCoffeeBtnLbl">Update a Song</string>
     <string name="songRatingLbl">Star Rating</string>
-    <string name="songNameLbl">Name :</string>
-    <string name="artistNameLbl">Artist :</string>
-    <string name="difficultyLbl">Difficulty :</string>
+    <string name="songNameLbl">Song </string>
+    <string name="artistNameLbl">Artist </string>
+    <string name="difficultyLbl">Difficulty </string>
     <string name="songDetailsLbl">Full Song Details</string>
     <string name="deleteSongsLbl">Delete Song\'s</string>
     <string name="appHelpTitle">RocksmithApp Help</string>
@@ -46,7 +46,15 @@
     <string name="linktoRegister">New to Rocksmith?\n Register at\n <a href='https://rocksmithprogress.herokuapp.com'>https://rocksmithprogress.herokuapp.com</a></string>
     <string name="addASongLbl">Song Check In</string>
     <string name="add_song">Add Song</string>
-    <string name="speedTextViewLbl">Speed :</string>
+    <string name="speedTextViewLbl">Speed </string>
+    <string name="add_song_hint">Song Title</string>
+    <string name="add_artist_hint">Artist Name</string>
+    <string name="add_difficulty_hint">Between 0 - 100</string>
+    <string name="add_speed_hint">Between 0 - 100</string>
+    <string name="edit_song_hint">Song Title</string>
+    <string name="edit_artist_hint">Artist Name</string>
+    <string name="edit_difficulty_hint">0 - 100</string>
+    <string name="edit_speed_hint">0 - 100</string>
 
 
 </resources>

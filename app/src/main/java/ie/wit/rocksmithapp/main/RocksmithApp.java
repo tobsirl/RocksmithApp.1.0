@@ -18,17 +18,12 @@ import java.util.concurrent.TimeUnit;
 
 import ie.wit.rocksmithapp.api.RocksmithAppService;
 import ie.wit.rocksmithapp.model.SongRecord;
-import io.realm.Realm;
-import io.realm.SyncConfiguration;
-import io.realm.SyncCredentials;
-import io.realm.SyncUser;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 // Realm Cloud
-import io.realm.ObjectServerError;
-import static ie.wit.rocksmithapp.Constants.AUTH_URL;
+
 
 public class RocksmithApp extends Application {
 

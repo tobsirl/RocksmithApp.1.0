@@ -1,11 +1,11 @@
 package ie.wit.rocksmithapp.fragments;
 
 import android.app.AlertDialog;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -22,15 +22,12 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import ie.wit.rocksmithapp.main.RocksmithApp;
 import ie.wit.rocksmithapp.R;
 import ie.wit.rocksmithapp.adapters.SongRecordFilter;
 import ie.wit.rocksmithapp.adapters.SongRecordListAdapter;
+import ie.wit.rocksmithapp.main.RocksmithApp;
 import ie.wit.rocksmithapp.model.SongRecord;
 import io.realm.Realm;
-import io.realm.RealmResults;
-import io.realm.Sort;
-import io.realm.SyncConfiguration;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -209,7 +206,7 @@ public class SongRecordFragment extends Fragment implements AdapterView.OnItemCl
         SongRecord c = null;
         for (int i = listAdapter.getCount() - 1; i >= 0; i--) {
             if (listView.isItemChecked(i)) {
-                deleteASong(listAdapter.getItem(i).songId);
+                deleteASong(listAdapter.getItem(i)._id);
             }
         }
         actionMode.finish();

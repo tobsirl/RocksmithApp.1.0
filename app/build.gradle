@@ -12,7 +12,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "ie.wit.rocksmithapp"
-        minSdkVersion 24
+        minSdkVersion 14
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -55,6 +55,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
     // recyclerview
     implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
 
     //Youtube Android Player API Jar dependency
     implementation files('libs/YouTubeAndroidPlayerApi.jar')

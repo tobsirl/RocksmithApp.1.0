@@ -3,5 +3,7 @@
     <string-array name="songTypes">
         <item>All Types</item>
         <item>Favourites</item>
+        <item>Songs</item>
+        <item>Artists</item>
     </string-array>
 </resources>

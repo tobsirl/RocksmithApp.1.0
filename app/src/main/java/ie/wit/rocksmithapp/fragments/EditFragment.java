@@ -27,7 +27,7 @@ public class EditFragment extends Fragment {
     SongRecord aSong;
     Boolean     isFavourite;
 
-    EditText songName, artistName, difficulty;
+    EditText songName, artistName, difficulty, speed;
     RatingBar ratingBar;
     ImageView favouriteImage;
 
@@ -67,6 +67,7 @@ public class EditFragment extends Fragment {
         songName = v.findViewById(R.id.songNameEditText);
         artistName = v.findViewById(R.id.artistNameEditText);
         difficulty = v.findViewById(R.id.difficultyEditText);
+        speed = v.findViewById(R.id.speedEditText);
         ratingBar = v.findViewById(R.id.songRatingBar);
         favouriteImage = v.findViewById(R.id.favouriteImageView);
 
@@ -98,6 +99,7 @@ public class EditFragment extends Fragment {
         songName.setText(aSong.songName);
         artistName.setText(aSong.artistName);
         difficulty.setText(aSong.difficulty);
+        speed.setText(aSong.speed);
         ratingBar.setRating((float)aSong.ratingValue);
 
         if (aSong.favourite) {
@@ -163,6 +165,7 @@ public class EditFragment extends Fragment {
             String SongName = songName.getText().toString();
             String ArtistName = artistName.getText().toString();
             String Difficulty = difficulty.getText().toString();
+            String Speed = speed.getText().toString();
             double ratingValue = ratingBar.getRating();
 
             Integer difficultyVal;
@@ -171,10 +174,17 @@ public class EditFragment extends Fragment {
             } catch (NumberFormatException e)
             {            difficultyVal = 0;        }
 
-            if ((SongName.length() > 0) && (ArtistName.length() > 0) && (Difficulty.length() > 0)) {
+            Integer speedVal;
+            try {
+                speedVal = Integer.parseInt(Speed);
+            } catch (NumberFormatException e)
+            {            speedVal = 0;        }
+
+            if ((SongName.length() > 0) && (ArtistName.length() > 0) && (Difficulty.length() > 0) && (Speed.length() > 0)) {
                 aSong.songName = SongName;
                 aSong.artistName = ArtistName;
                 aSong.difficulty = difficultyVal;
+                aSong.speed = speedVal;
                 aSong.ratingValue = ratingValue;
             }
 
